@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import _ from 'lodash';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -25,56 +26,50 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
-function App() {
+const App = () => {
   const [user] = useAuthState(auth);
 
   return (
     <div className='App'>
-      <header className='App-header'></header>
-
+      <header></header>
       <section>{user ? <ChatRoom /> : <SignIn />}</section>
     </div>
   );
-}
+};
 
-function SignIn() {
+const SignIn = () => {
   const signInWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider);
   };
   return <button onClick={signInWithGoogle}>Sign in with Google</button>;
-}
+};
 
-function SignOut() {
+const SignOut = () => {
   return (
     auth.currentUSer && <button onClick={() => auth.signOut()}>Sign Out</button>
   );
-}
+};
 
-function ChatRoom() {
+const ChatRoom = () => {
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
-
   const [messages] = useCollectionData(query, { idField: 'id' });
-
-  // console.log(query);
-  // console.log(messages);
 
   return (
     <>
       <p>hello world</p>
-      <div>{messages}</div>
       <div>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </div>
     </>
   );
-}
+};
 
-function ChatMessage(props) {
+const ChatMessage = (props) => {
   const { text, uid } = props.message;
   return <p>{text}</p>;
-}
+};
 
 export default App;
