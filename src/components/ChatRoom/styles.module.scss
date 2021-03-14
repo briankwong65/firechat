@@ -22,6 +22,7 @@
     .submitBtn {
         width: 20%;
         background-color: rgb(56, 56, 143);
+        font-size: x-large;
         &:disabled {
             opacity: 0.5;
             cursor: not-allowed;
