@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as styles from './styles.module.scss';
 
 import firebase from 'firebase/app';
@@ -14,6 +14,8 @@ const ChatRoom = (props) => {
     const [messages] = useCollectionData(query, { idField: 'id' });
 
     const [formValue, setFormValue] = useState('');
+
+    const buttomView = useRef();
 
     const handleSubmit = (event) =>{
         setFormValue(event.target.value);
@@ -31,18 +33,20 @@ const ChatRoom = (props) => {
         });
 
         setFormValue('');
+
+        buttomView.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     return (
         <>
-            <p>hello world</p>
-            <div>
+            <main>
                 {messages &&
                 messages.map((msg) => <ChatMessage key={msg.id} message={msg} auth={auth}/>)}
-            </div>
+                <span ref={buttomView}></span>
+            </main>
             <form onSubmit={sendMessage}>
-                <input value={formValue} onChange={handleSubmit}/>
-                <button type='submit'>👾</button>
+                <input value={formValue} onChange={handleSubmit} placeholder="Say something💬"/>
+                <button type='submit' disabled={!formValue}>👾</button>
             </form>
         </>
     );
