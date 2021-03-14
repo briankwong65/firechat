@@ -7,7 +7,10 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+import SignIn from './components/SignIn';
+import ChatRoom from './components/ChatRoom';
+import SignOut from './components/SignOut';
 
 if (!firebase.apps.length) {
   firebase.initializeApp({
@@ -32,44 +35,9 @@ const App = () => {
   return (
     <div className='App'>
       <header></header>
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+      <section>{user ? <ChatRoom firestore={firestore}/> : <SignIn auth={auth} />}</section>
     </div>
   );
-};
-
-const SignIn = () => {
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
-  };
-  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
-};
-
-const SignOut = () => {
-  return (
-    auth.currentUSer && <button onClick={() => auth.signOut()}>Sign Out</button>
-  );
-};
-
-const ChatRoom = () => {
-  const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
-  const [messages] = useCollectionData(query, { idField: 'id' });
-
-  return (
-    <>
-      <p>hello world</p>
-      <div>
-        {messages &&
-          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-      </div>
-    </>
-  );
-};
-
-const ChatMessage = (props) => {
-  const { text, uid } = props.message;
-  return <p>{text}</p>;
 };
 
 export default App;
