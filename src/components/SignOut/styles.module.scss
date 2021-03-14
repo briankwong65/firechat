@@ -1,3 +1,5 @@
 .signOutBtn {
-    border-radius: 10px;
+    &:hover {
+        cursor: pointer;
+    }
 }
