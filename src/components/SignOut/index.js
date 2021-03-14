@@ -5,7 +5,7 @@ const SignOut = (props) => {
     const { auth } = props;
 
     return (
-      auth.currentUSer && <button onClick={() => auth.signOut()}>Sign Out</button>
+      auth.currentUser && <button onClick={() => auth.signOut()}>Sign Out</button>
     );
 };
 
