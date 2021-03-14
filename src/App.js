@@ -28,12 +28,17 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+
+
 const App = () => {
   const [user] = useAuthState(auth);
 
   return (
     <div className='App'>
-      <header></header>
+      <header>
+        <h1>🔥Fire Chat</h1>
+        <SignOut auth={auth}/>
+      </header>
       <section>{user ? <ChatRoom firestore={firestore} auth={auth}/> : <SignIn auth={auth} />}</section>
     </div>
   );
