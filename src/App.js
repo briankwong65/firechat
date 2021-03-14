@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import _ from 'lodash';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
