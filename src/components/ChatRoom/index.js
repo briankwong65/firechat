@@ -45,7 +45,7 @@ const ChatRoom = (props) => {
                 <span ref={buttomView}></span>
             </main>
             <form className={styles.form} onSubmit={sendMessage}>
-                <input className={styles.inputBar} value={formValue} onChange={handleSubmit} placeholder="message to be fired💬"/>
+                <input className={styles.inputBar} value={formValue} onChange={handleSubmit} placeholder="Fire your message here💬"/>
                 <button className={styles.submitBtn} type='submit' disabled={!formValue}>🔥</button>
             </form>
         </>
