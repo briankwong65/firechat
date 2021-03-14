@@ -44,9 +44,9 @@ const ChatRoom = (props) => {
                 messages.map((msg) => <ChatMessage key={msg.id} message={msg} auth={auth}/>)}
                 <span ref={buttomView}></span>
             </main>
-            <form onSubmit={sendMessage}>
-                <input value={formValue} onChange={handleSubmit} placeholder="Say something💬"/>
-                <button type='submit' disabled={!formValue}>👾</button>
+            <form className={styles.form} onSubmit={sendMessage}>
+                <input className={styles.inputBar} value={formValue} onChange={handleSubmit} placeholder="Say something💬"/>
+                <button className={styles.submitBtn} type='submit' disabled={!formValue}>👾</button>
             </form>
         </>
     );
