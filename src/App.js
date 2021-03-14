@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className='App'>
       <header>
-        <h1>🔥Fire Chat</h1>
+        <h1>🔥Firechat</h1>
         <SignOut auth={auth}/>
       </header>
       <section>{user ? <ChatRoom firestore={firestore} auth={auth}/> : <SignIn auth={auth} />}</section>
