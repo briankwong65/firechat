@@ -5,7 +5,6 @@ import _ from 'lodash';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import SignIn from './components/SignIn';
@@ -35,7 +34,7 @@ const App = () => {
   return (
     <div className='App'>
       <header></header>
-      <section>{user ? <ChatRoom firestore={firestore}/> : <SignIn auth={auth} />}</section>
+      <section>{user ? <ChatRoom firestore={firestore} auth={auth}/> : <SignIn auth={auth} />}</section>
     </div>
   );
 };
