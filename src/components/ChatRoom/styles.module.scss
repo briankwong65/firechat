@@ -1,3 +1,24 @@
+.chatRoomBox {
+    padding: 10px;
+    height: 80vh;
+    margin: 10vh 0 10vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatRoomBox::-webkit-scrollbar {
+    width: 0.25rem;
+}
+  
+.chatRoomBox::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+  
+.chatRoomBox::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
 .form {
     height: 10vh;
     position: fixed;

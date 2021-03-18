@@ -39,13 +39,13 @@ const ChatRoom = (props) => {
 
   return (
     <>
-      <main>
+      <div className={styles.chatRoomBox}>
         {messages &&
           messages.map((msg) => (
             <ChatMessage key={msg.id} message={msg} auth={auth} />
           ))}
         <span ref={buttomView}></span>
-      </main>
+      </div>
       <form className={styles.form} onSubmit={sendMessage}>
         <input
           className={styles.inputBar}
