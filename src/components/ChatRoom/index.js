@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import * as styles from './styles.module.scss';
+import { Button } from '@material-ui/core';
 
 import firebase from 'firebase/app';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -53,13 +54,13 @@ const ChatRoom = (props) => {
           onChange={handleSubmit}
           placeholder='Fire your message here💬'
         />
-        <button
+        <Button
           className={styles.submitBtn}
           type='submit'
           disabled={!formValue}
         >
           🔥
-        </button>
+        </Button>
       </form>
     </>
   );
