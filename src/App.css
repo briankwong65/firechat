@@ -1,5 +1,5 @@
 body {
-  background-color: #282c34;
+  background-color: #101b47;
 }
 
 .App {
@@ -9,7 +9,7 @@ body {
 }
 
 .App header {
-  background-color: #181717;
+  background-color: #a83244;
   height: 10vh;
   min-height: 50px;
   color: white;
@@ -30,11 +30,11 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: #a86d32;
 }
 
 button {
-  background-color: #282c34; /* Green */
+  background-color: #282c34;
   border: none;
   color: white;
   padding: 15px 32px;
