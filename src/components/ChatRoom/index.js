@@ -54,13 +54,13 @@ const ChatRoom = (props) => {
           onChange={handleSubmit}
           placeholder='Fire your message here💬'
         />
-        <Button
+        <button
           className={styles.submitBtn}
           type='submit'
           disabled={!formValue}
         >
           🔥
-        </Button>
+        </button>
       </form>
     </>
   );
