@@ -1,7 +1,7 @@
 # 🔥Firechat
 
-An online public chat room for anyone to talk!
-Made with React, Node.js, and Firebase
+An online public chat room for anyone to talk! </br>
+Made with React, Node.js, and Firebase.
 
 Live link: https://firechat.briankwong.me
 
